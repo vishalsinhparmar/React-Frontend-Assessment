@@ -1,15 +1,16 @@
+
 # 🛍️ Product Catalog - React Frontend Assessment
 
 This is a responsive product catalog web application built using **React** as part of the **CloudGenZ Technologies Pvt Ltd** frontend developer assessment.
 
 The project demonstrates component-based architecture, API integration, routing, responsive layout, and basic error handling.
 
----
+
 
 ## 🚀 Live Demo
 
 
----
+
 
 ## 🧩 Features
 
@@ -47,7 +48,11 @@ The project demonstrates component-based architecture, API integration, routing,
 - Fake Store API
 - Vercel (for deployment)
 
----
+
 
 ## 📁 Folder Structure
 
+
+# React-Frontend-Assessment
+This is a responsive product catalog web application built using **React** as part of the **CloudGenZ Technologies Pvt Ltd** frontend developer assessment.
+>>>>>>> 02cfccdc932080f881a7b6d4fb8603e12c2f31ea
