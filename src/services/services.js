@@ -5,6 +5,7 @@ const api = axios.create({
      baseURL:url
 });
 
+// product data are fetched
 const getProductData = async ()=>{
     try{
         const res = await api.get('/products');
@@ -12,10 +13,11 @@ const getProductData = async ()=>{
 
     }catch(err){
          console.log('erro happen in this getProductData',err)
+         throw err
     }
 };
 
-
+// productId data fetch
 const getProductbyId = async (id)=>{
     try{
         const res = await api.get(`/products/${id}`);
@@ -23,6 +25,7 @@ const getProductbyId = async (id)=>{
 
     }catch(err){
          console.log('erro happen in this getProductData',err)
+         throw err
     }
 };
 

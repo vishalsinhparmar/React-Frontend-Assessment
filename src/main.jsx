@@ -4,8 +4,10 @@ import './index.css'
 import App from './App.jsx'
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom'
 import ProductDetail from './components/ProductDetail.jsx'
+import { ProductContextprovider } from './components/context/ProductContextprovider.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+     <ProductContextprovider>
       <Router>
            <Routes>
                 <Route path='/' element = {<App/>}/>
@@ -13,5 +15,6 @@ createRoot(document.getElementById('root')).render(
 
            </Routes>
       </Router>
-  </StrictMode>,
+    </ProductContextprovider>
+  </StrictMode>
 )

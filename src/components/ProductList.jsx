@@ -1,41 +1,35 @@
-import { useEffect, useState } from "react";
-import { getProductData } from "../services/services";
+import { useContext} from "react";
 import { useNavigate } from "react-router-dom";
 import strImage from '../assets/images/star.png';
+import SearchBox from "./SerchBox";
+import { ProductContext } from "./context/ProductContextprovider";
+
 
 const ProductList = () => {
-  const [product, setProduct] = useState([]);
-  const [loading, setLoading] = useState(true);
+ const {fillterData,loading,error} = useContext(ProductContext)
   const navigate = useNavigate();
-
-  // Fetch product data from API
-  const fetchProductList = async () => {
-    try {
-      const data = await getProductData();
-      console.log('product', data);
-      if (data) {
-        setProduct(data);
-        setLoading(false);
-      }
-    } catch (err) {
-      console.log('Error in fetchProductList:', err);
-    }
-  };
-
-  // Fetch products on component mount
-  useEffect(() => {
-    fetchProductList();
-  }, []);
-
+  if(error){
+      return (
+        <div>
+             <h2>{error}</h2>
+             <button onClick={()=>window.location.reload()}>Retry</button>
+        </div>
+      )
+  }
   return (
     <div className="product-list">
+      <div>
+      <SearchBox/>
+      </div>
       {loading ? (
-        <p>Loading...</p>
-      ) : product.length === 0 ? (
-        <p>No items found</p>
+        <p className="loading">Loading...</p>
+      ) : fillterData.length === 0 ? (
+        <div className="no-found">
+           <p>No items found</p>
+        </div>
       ) : (
         <div className="product-item">
-          {product.map((item) => (
+          {fillterData.map((item) => (
             <div key={item.id} className="product-productData">
               <h1>{item.title.slice(0, 10)}...</h1>
 

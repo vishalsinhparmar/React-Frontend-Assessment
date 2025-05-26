@@ -1,0 +1,19 @@
+.input-container{
+     width: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+.input-serch{
+     width: 50%;
+     display: flex;
+     border: black;
+     border-radius: 5px;
+     padding: 10px 10px;
+     font-size: medium;
+     font-weight: 200;
+     color: gray;
+}
+.input-serch::placeholder{
+     font-size: small;
+}

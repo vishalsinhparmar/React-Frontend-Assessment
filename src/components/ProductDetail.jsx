@@ -8,6 +8,7 @@ const ProductDetail = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [product, setProduct] = useState(null);
+  const [error,setError] = useState(null);
   const navigate = useNavigate();
 
   const fetchProductDetails = async () => {
@@ -15,9 +16,12 @@ const ProductDetail = () => {
       const data = await getProductbyId(id);
       if (data) {
         setProduct(data);
+        setError(null)
       }
     } catch (err) {
       console.error("Error fetching product details:", err);
+      setError(err.message || "Something went wrong.")
+
     } finally {
       setLoading(false);
     }
@@ -26,11 +30,19 @@ const ProductDetail = () => {
   useEffect(() => {
     fetchProductDetails();
   }, [id]);
-
+// handle loading
   if (loading) {
     return <p className="loading-text">Loading...</p>;
   }
-
+// handle error 
+  if(error){
+     return (
+      <div>
+          <p>{error}</p>
+      </div>
+     )
+  }
+ 
   if (!product) {
     return <p className="error-text">No product found.</p>;
   }
