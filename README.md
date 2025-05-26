@@ -8,7 +8,7 @@ The project demonstrates component-based architecture, API integration, routing,
 
 
 ## 🚀 Live Demo
-
+https://react-frontend-assessment-taupe.vercel.app/
 
 
 
